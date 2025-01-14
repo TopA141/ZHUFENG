@@ -1,0 +1,375 @@
+<html><head><base href="https://example.com" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>瞩丰投资</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Microsoft YaHei', sans-serif;
+    }
+
+    body {
+      height: auto;
+      overflow-y: auto;
+      min-height: 100vh;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 1);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      height: 50px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    .top-nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .top-nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav a:hover {
+      border-color: white;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                  url('https://images.unsplash.com/photo-1545893835-abaa50cbe628?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=30');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+      margin-top: 80px;
+    }
+
+    .hero-content {
+      margin-bottom: 15vh;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .contact-section {
+      width: 100%;
+      color: white;
+      text-align: center;
+      animation: fadeIn 1.5s ease-out;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-section h2 {
+      width: 100%;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 40px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .contact-info p {
+      white-space: nowrap;
+    }
+
+    section.content-section {
+      padding: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    section.content-section h1 {
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #333;
+    }
+
+    .values {
+      margin: 30px 0;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 10px;
+    }
+
+    .values ul {
+      margin-left: 20px;
+      margin-top: 15px;
+    }
+
+    .values li {
+      margin: 10px 0;
+    }
+
+    .case {
+      margin: 30px 0;
+      padding: 25px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .team-member {
+      margin: 30px 0;
+      padding: 25px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .team-member img {
+      width: 150px;
+      height: 200px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .team-member h2 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .team-member p {
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+
+    .mission-vision {
+      display: flex;
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    .mission, .vision {
+      flex: 1;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+
+    .cases-image {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto 30px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .cases-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+  @"E:\事件\新黄昏\INTERNSHIP\孔雀\网站\html\images\1736843101770.jpg" {
+    display: block;
+    margin: 0 auto; 
+    max-width: 100%;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <img src="E:\事件\新黄昏\INTERNSHIP\孔雀\网站\html\images\logo1.jpg">
+    <nav class="top-nav">
+      <a href="#about">关于我们</a>
+      <a href="#cases">成功案例</a>
+      <a href="#team">管理团队</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>瞩丰投资</h1>
+      <p>专业的投资管理团队，提供卓越的投资回报</p>
+    </div>
+  </section>
+
+  <section id="about" class="content-section">
+    <h1>关于我们</h1>
+    <div class="about-section">
+      <p>瞩丰投资（Zupreme Investment）系孔雀资本集团旗下投资品牌，致力于投资和孵化具有颠覆行业潜力的公司以及挖掘特殊事件投资机会。
+        <br/>
+        <br/>
+      </p>
+      <p>孔雀资本集团（PCG）于2012年在香港特别行政区成立，是一家专注于大中华地区的精品投行。集团扎根在香港、上海、成都及汕头，提供企业金融服务和另类投资业务。团队在大消费、娱乐、高端制造、新能源和TMT等领域拥有众多相关专业知识及成功案例。自成立以来，集团已成功帮助客户完成一系列的债务重组、股权融资、投资、IPO、并购及重组等交易，累计交易规模总值超过10亿美元。
+        <br/>
+        <br/>
+      </p>
+      <p>PCG旗下的投资品牌为瞩丰投资 (Zupreme Investment)，秉承“让生活更美好”的投资文化，主要投资娱乐消费、区块链和可持续发展类型项目。通过多年发展，团队对制定基金架构、交易牵头、尽职调查、合同磋商、流程优化、再融资及投资退出等各阶段交易已累积丰厚经验，对运营资金套现、优化业务流程，还是整合风险管理架构的流程已十分成熟，可引领企业把握最佳机遇、优化利益增长。
+      </p>
+
+    </div>
+    
+    <div class="mission-vision">
+      <div class="mission">
+        <h2>使命</h2>
+        <p>我们的使命是为客户提供超过市场平均水平的回报，同时通过战略投资者和供应链引介来增强我们的投资组合。</p>
+      </div>
+      <div class="vision">
+        <h2>愿景</h2>
+        <p>我们致力于赋予有远见的创业者力量，将他们的创意转化为繁荣的企业，促进创新和增长。</p>
+      </div>
+    </div>
+
+    <div class="values">
+      <h2>核心价值观</h2>
+      <ul>
+        <li> P – 迅速 随时准备行动，根据情况迅速行动，并提供及时的回应；</li>
+        <li> E – 企业家精神 高瞻远瞩，包容开放；</li>
+        <li> A – 负责 对工作兢业勤恳、对结果富有担当；</li>
+        <li> C – 谨慎 做事细致、谨慎、警惕；</li>
+        <li> O – 优异 保持行业一流水准，卓尔不群，具备渊博的知识、聪慧的头脑和真知灼见；</li>
+        <li> C – 积极进取 保持积极的心态，专注于交付结果，不为困难寻找借口；</li>
+        <li> K – 热忱 对工作全情投入，对市场洞悉敏锐，对客户反馈迅速。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="cases" class="content-section">
+    
+    <h1>成功案例</h1>
+    <div class="case">
+	<img src="E:\事件\新黄昏\INTERNSHIP\孔雀\网站\html\images\1736842054390.jpg"/>
+	  <br/>
+ 	  <br/> 
+	  <br/>
+	  <br/>
+	<img src="E:\事件\新黄昏\INTERNSHIP\孔雀\网站\html\images\1736843101770.jpg"/>
+    </div>
+
+  </section>
+
+  <section id="team" class="content-section">
+    <h1>管理团队</h1>
+    <div class="team-member">
+      <img src="E:\事件\新黄昏\INTERNSHIP\孔雀\网站\html\images\1736836337352.jpg" alt="区家俊">
+      <div>
+        <h2>区家俊 | 管理合伙人</h2>
+        <p>毕业于美国的南加州大学，获得了工商管理荣誉学士学位。</p>
+        <p>在金融服务行业拥有超过10年的工作经验，对公司融资和并购咨询方面拥有丰富且多元化的经验。</p>
+    
+      </div>
+    </div>
+
+    <div class="team-member">
+      <img src="E:\事件\新黄昏\INTERNSHIP\孔雀\网站\html\images\1736836342549.jpg" alt="朱家俊">
+      <div>
+        <h2>朱家俊 | 合伙人</h2>
+        <p>毕业于美国的南加州大学，获得了会计学士学位和公司税务硕士学位。</p>
+        <p>在安永会计师事务所开始其职业生涯，并在房地产和金融行业拥有超过10年的工作经验，对房地产投资法律和税收框架有全面了解。</p>
+      </div>
+    </div>
+
+    <div class="team-member">
+      <img src="E:\事件\新黄昏\INTERNSHIP\孔雀\网站\html\images\1736836345447.jpg" alt="丁宇">
+      <div>
+        <h2> 丁  宇  | 合伙人</h2>
+        <p>本科就读于上海交通大学，并获得了海洋建筑与工程以及公共事务管理的学士学位，随后他在新西兰的奥克兰商学院获得他的MBA硕士学位。</p>
+	<p>曾负责上海一家医疗设备公司的融资业务，并曾在新西兰奥克兰担任FlexiGroup的风险分析师。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact-section">
+    <h2>联系我们</h2>
+    <div class="contact-info">
+      <p>邮箱：ir@PeacockCap.com</p>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
